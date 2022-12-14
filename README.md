@@ -5,6 +5,8 @@ This is my submission for the internship task. It is a basic website that has al
 **Note:** 
 1. I have not used a date time library as a particular functionality requires user input to be stored, which I have done in the simplest way possible.
 2. I have used Remix to combine the code and deploy it in the testnet (Goerli) to get the required addresses and ABI.
+3. Didn't find a way to display the ledger, so put it in a alert box for now. works the same, as we needed to find out weather the data is shown or not.
+4. Sometimes after clicking on the button, and granting access, we are needed to click again to perform the transaction.
 
 Link to website: https://blockchain-submission.netlify.app/
 
