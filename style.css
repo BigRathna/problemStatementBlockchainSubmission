@@ -1,0 +1,165 @@
+body{
+    margin-top: 15;
+    font-family: sans-serif;
+    color: aliceblue;
+    background: linear-gradient(#141e30, #243b55);
+}
+
+h1 {
+    padding-top: 20px;
+}
+
+
+
+.login-box {
+    position: absolute;
+    top: 57%;
+    left: 20%;
+    width: 450px;
+    height: 600px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .login-box h3 {
+    margin: 0 0 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .btn,
+  .login-boxx .btn,
+  .login-boxxx .btn{
+    background-image: linear-gradient(#1028c7, #27057c);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Montserrat,sans-serif;
+  font-size: 16px;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  }
+
+  .login-box .user-box input {
+    width: 100%;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box label {
+    position: absolute;
+
+  }
+  
+
+  .login-boxx {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    width: 450px;
+    height: 600px;
+    padding: 50px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .login-boxx h3 {
+    margin: 0 0 30px;
+    padding-top: 0px;
+    padding-bottom: 100px;
+    color: #fff;
+    text-align: center;
+  }
+  
+
+
+  .login-boxx .user-boxx {
+    position: relative;
+  }
+
+  
+  .login-boxx .user-boxx input {
+    width: 100%;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-boxx .user-boxx label {
+    position: absolute;
+  }
+   
+  .login-boxxx {
+    position: absolute;
+    top: 57%;
+    left: 80%;
+    width: 450px;
+    height: 600px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .login-boxxx h3 {
+    margin: 0 0 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .login-boxxx .user-boxxx {
+    position: relative;
+  }
+  
+  .login-boxxx .user-boxxx input {
+    width: 100%;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-boxxx .user-boxxx label {
+    position: absolute;
+    
+  }
+  
+
+  

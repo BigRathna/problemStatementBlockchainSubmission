@@ -1,0 +1,335 @@
+<html>
+
+<head>
+	<title>Invoice Ledger</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<center>
+		<h1>Invoice Ledger</h1>
+		<h5>by Badha Rathna Sabhapathy</h5>
+		<div class="login-box">
+			<h3>Add to ledger</h3>
+			<form>
+				<div class="user-box">
+					<label for="buyerPANADD">Buyer PAN:</label>
+					<input type="text" id="buyerPANADD">
+				</div>
+
+				<div class="user-box">
+					<label for="sellerPANADD">Seller PAN:</label>
+					<input type="text" id="sellerPANADD">
+				</div>
+
+				<div class="user-box">
+					<label for="invoiceAmountADD">Invoice Amount:</label>
+					<input type="number" id="invoiceAmountADD">
+				</div>
+
+				<div class="user-box">
+					<label for="invoiceDateADD">Invoice Date:</label>
+					<input type="date" id="invoiceDateADD">
+				</div>
+
+				<input class="btn" type="button" value="Add Invoice" onclick="addInvoice()">
+			</form>
+		</div>
+
+		<div class="login-boxxx">
+			<h3>Update Payment statuses</h3>
+			<form>
+				<div class="user-boxxx">
+					<label for="buyerPAN">Buyer PAN:</label>
+					<input type="text" id="buyerPAN">
+				</div>
+
+				<div class="user-boxxx">
+					<label for="sellerPAN">Seller PAN:</label>
+					<input type="text" id="sellerPAN">
+				</div>
+
+				<div class="user-boxxx">
+					<label for="invoiceAmount">Invoice Amount:</label>
+					<input type="number" id="invoiceAmount">
+				</div>
+
+				<div class="user-boxxx">
+					<label for="invoiceDate">Invoice Date:</label>
+					<input type="date" id="invoiceDate">
+				</div>
+
+				<input class="btn" type="button" value="Update Payment Status" onclick="updatePaymentStatus()">
+			</form>
+		</div>
+
+		<div class="login-boxx">
+			<h3>Get Invoices</h3>
+			<form>
+				<div class="user-boxx">
+					<label for="buyerPANGET" class="test">Buyer PAN:</label>
+					<input type="text" id="buyerPANGET">
+				</div>
+
+				<input class="btn" type="button" value="Get Previous Invoices" onclick="getPreviousInvoices()">
+			</form>
+		</div>
+
+
+
+
+
+		<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+		<script>
+			const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+
+			const contractAddress = "0x3a29dB2a3C763F2B64b12b8E7664cF2Ba0a2A812";
+			const abi = [
+				{
+					"inputs": [
+						{
+							"internalType": "string",
+							"name": "_buyerPAN",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "_sellerPAN",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "_invoiceAmount",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "_invoiceDateDay",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "_invoiceDateMonth",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "_invoiceDateYear",
+							"type": "uint256"
+						}
+					],
+					"name": "addInvoice",
+					"outputs": [],
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"inputs": [
+						{
+							"internalType": "string",
+							"name": "_buyerPAN",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "_sellerPAN",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "_invoiceAmount",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "_invoiceDateDay",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "_invoiceDateMonth",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "_invoiceDateYear",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "_paymentStatus",
+							"type": "bool"
+						}
+					],
+					"name": "updatePaymentStatus",
+					"outputs": [],
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"inputs": [
+						{
+							"internalType": "string",
+							"name": "",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"name": "buyerInvoices",
+					"outputs": [
+						{
+							"internalType": "string",
+							"name": "buyerPAN",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "sellerPAN",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "invoiceAmount",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "invoiceDateDay",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "invoiceDateMonth",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "invoiceDateYear",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "paymentStatus",
+							"type": "bool"
+						}
+					],
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"inputs": [
+						{
+							"internalType": "string",
+							"name": "_buyerPAN",
+							"type": "string"
+						}
+					],
+					"name": "getPreviousInvoices",
+					"outputs": [
+						{
+							"components": [
+								{
+									"internalType": "string",
+									"name": "buyerPAN",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "sellerPAN",
+									"type": "string"
+								},
+								{
+									"internalType": "uint256",
+									"name": "invoiceAmount",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "invoiceDateDay",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "invoiceDateMonth",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "invoiceDateYear",
+									"type": "uint256"
+								},
+								{
+									"internalType": "bool",
+									"name": "paymentStatus",
+									"type": "bool"
+								}
+							],
+							"internalType": "struct InvoiceLedger.Invoice[]",
+							"name": "",
+							"type": "tuple[]"
+						}
+					],
+					"stateMutability": "view",
+					"type": "function"
+				}
+			]
+
+			const contract = new web3.eth.Contract(abi, contractAddress);
+
+			async function addInvoice() {
+				ethereum.enable().then(accounts => {
+					const account = accounts[0];
+				});
+				const buyerPAN = document.getElementById("buyerPANADD").value;
+				const sellerPAN = document.getElementById("sellerPANADD").value;
+				const invoiceAmount = document.getElementById("invoiceAmountADD").value;
+				const invoiceDate = document.getElementById("invoiceDateADD").value;
+				var date = new Date(invoiceDate);
+				var day = date.getDate();
+				var month = date.getMonth() + 1;
+				var year = date.getFullYear();
+				const accounts = await web3.eth.getAccounts();
+				contract.methods.addInvoice(buyerPAN, sellerPAN, invoiceAmount, day, month, year).send({ from: accounts[0] });
+			}
+
+			async function getPreviousInvoices() {
+				ethereum.enable().then(accounts => {
+					const account = accounts[0];
+				});
+
+				const buyerPAN = document.getElementById("buyerPANGET").value;
+
+				const accounts = await web3.eth.getAccounts();
+				const invoices = await contract.methods.getPreviousInvoices(buyerPAN).call();
+				alert(invoices);
+				console.log(invoices);
+			}
+
+			async function updatePaymentStatus() {
+				ethereum.enable().then(accounts => {
+					const account = accounts[0];
+				});
+				const buyerPAN = document.getElementById("buyerPAN").value;
+				const sellerPAN = document.getElementById("sellerPAN").value;
+				const invoiceAmount = document.getElementById("invoiceAmount").value;
+				const invoiceDate = document.getElementById("invoiceDate").value;
+				var date = new Date(invoiceDate);
+				var day = date.getDate();
+				var month = date.getMonth() + 1;
+				var year = date.getFullYear();
+				const paymentStatus = confirm("Would you like to change it to TRUE?");
+
+				const accounts = await web3.eth.getAccounts();
+				contract.methods.updatePaymentStatus(buyerPAN, sellerPAN, invoiceAmount, day, month, year, paymentStatus).send({ from: accounts[0] });
+			}
+		</script>
+	</center>
+
+
+</body>
+
+</html>
